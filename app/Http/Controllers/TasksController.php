@@ -46,12 +46,12 @@ class TasksController extends Controller
     {
         
         $this->validate($request, [
-            'title' => 'required|max:191',   // 追加
+            'status' => 'required|max:10',   // 追加
             'content' => 'required|max:191',
         ]);
         
         $task = new Task;
-        $task->title = $request->title;    // 追加
+        $task->status = $request->status;    // 追加
         $task->content = $request->content;
         $task->save();
 
@@ -99,12 +99,12 @@ class TasksController extends Controller
     {
         
         $this->validate($request, [
-            'title' => 'required|max:191',   // 追加
+            'status' => 'required|max:10',   // 追加
             'content' => 'required|max:191',
         ]);
         
         $task = Task::find($id);
-        $task->title = $request->title;    // 追加
+        $task->status = $request->status;    // 追加
         $task->content = $request->content;
         $task->save();
 
